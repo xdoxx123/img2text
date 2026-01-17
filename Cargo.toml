@@ -1,0 +1,23 @@
+[package]
+name = "textart"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+anyhow = "1.0.100"
+clap = { version = "4.5.54", features = ["derive"] }
+image = "0.25.9"
+
+[profile.dev]
+opt-level = 0
+[profile.release]
+opt-level = 3
+
+
+
+[profile.smol]
+inherits = "release"
+opt-level = "z"
+strip=true
+lto = true
+codegen-units = 1
